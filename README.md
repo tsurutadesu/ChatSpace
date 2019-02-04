@@ -31,7 +31,7 @@ Things you may want to cover:
 |email|string|null: false,unique: true|
 
 ### Association
-- has_many :groups
+- has_many :groups, through:members
 - has_many :messages
 - has_many :members
 
@@ -43,7 +43,7 @@ Things you may want to cover:
 |name|string|null: false,unique: true|
 
 ### Association
-- has_many :users
+- has_many :users, through:members
 - has_many :messages
 - has_many :members
 
@@ -66,8 +66,8 @@ Things you may want to cover:
 |------|----|-------|
 |body|text||
 |image|string||
-|user_id|integer|null: false|
-|group_id|integer|null: false|
+|user_id|references|null: false|
+|group_id|references|null: false|
 
 ### Association
 - belongs_to :user
