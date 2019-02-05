@@ -1,5 +1,8 @@
 @import "./reset";
 @import "font-awesome";
+@import "modules/user";
+@import "config/colors";
+@import "modules/flash";
 
 * {
   box-sizing: border-box;
@@ -29,6 +32,7 @@
     text-decoration: none;
     line-height: 100px;
     font-size: 20px;
+    margin-right: 8px;
     }
   }
   .current-group {
