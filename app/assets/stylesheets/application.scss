@@ -1,1 +1,132 @@
 @import "./reset";
+@import "font-awesome";
+
+* {
+  box-sizing: border-box;
+}
+
+.user-header {
+  background-color: #fff;
+  height: 100px;
+  width: 100%;
+  border-bottom: 1px solid #eee;
+  .user-action {
+    height: 100px;
+    background-color: #253141;
+    width: 300px;
+    font-weight: bold;
+    font-size:16px;
+    padding: 0 20px;
+    color: #fff;
+    float: left;
+    .user-name {
+      float:left;
+      line-height: 100px;
+    }
+    .fa {
+    float:right;
+    color:white;
+    text-decoration: none;
+    line-height: 100px;
+    font-size: 20px;
+    }
+  }
+  .current-group {
+    color: #333;
+    font-size: 20px;
+    float: left;
+    margin: 30px 0 0px 40px;
+    .members {
+      font-size: 12px;
+      color: #999;
+      padding-top:10px;
+    }
+  }
+}
+
+.contents {
+  background-color: #fefefe;
+  height: 100%;
+  width: 100%;
+
+  .belongs-group {
+    background-color: #2f3e51;
+    height: 700px;
+    width: 300px;
+    float: left;
+
+    .group {
+      padding: 20px 20px 40px;
+      color: #fff;
+      .group-name {
+        font-size: 15px;
+        margin-bottom: 5px;
+      }
+      .group-message {
+        font-size: 11px;
+      }
+    }
+  }
+  .chat-main {
+    height: 700px;
+    width: calc(100vw - 300px);
+    float: right;
+    position: relative;
+    background: #eee;
+    .message {
+      padding: 46px 0 0 40px;
+      .member-name {
+        float: left;
+        margin-right: 10px;
+        margin-bottom: 10px;
+        font-size: 16px;
+        font-weight: bold;
+        color: #434A54;
+      }
+      .message-date {
+        color: #999;
+        font-size: 12px;
+        padding-top: 4px;
+        float:left;
+      }
+      .chat-text {
+        clear: both;
+        font-size: 14px;
+        color: #434A54;
+      }
+    }
+
+    footer {
+      height: 90px;
+      background-color: #ddd;
+      width: 100%;
+      bottom: 0;
+      padding: 20px 40px;
+      position: absolute;
+      .create_message {
+        float:left;
+        width: 80%;
+        height: 50px;
+        display: inline-block;
+        border: none;
+        padding-left: 10px;
+      }
+      .send-message {
+        background-color: #38AEF0;
+        height: 50px;
+        margin-left: 15px;
+        color: white;
+        padding: 10px 30px;
+        float: right;
+      }
+    }
+  }
+}
+.upload-label {
+  position: relative;
+  top: 12px;
+  right: 30px;
+  #upload-icon {
+  display: none;
+  }
+}

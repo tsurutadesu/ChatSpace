@@ -1,0 +1,58 @@
+.user-header
+  .user-action
+    .user-name
+      name
+    %a.fa.fa-cog{ href: '#', style: "margin-left:8px" }
+    %a.fa.fa-edit{ href: '#' }
+  .current-group
+    sample
+    %p.members
+      Members: member_name
+
+.contents
+  .belongs-group
+    .group
+      %p.group-name
+        aaa
+      %p.group-message
+        まだメッセージはありません。
+    .group
+      %p.group-name
+        aaa
+      %p.group-message
+        まだメッセージはありません。
+    .group
+      %p.group-name
+        aaa
+      %p.group-message
+        まだメッセージはありません。
+
+  .chat-main
+    .message
+      %p.member-name
+        name
+      %p.message-date
+        2019/00/00/00 00:00:00
+      %p.chat-text
+        text
+    .message
+      %p.member-name
+        name
+      %p.message-date
+        2019/00/00/00 00:00:00
+      %p.chat-text
+        text
+    .message
+      %p.member-name
+        name
+      %p.message-date
+        2019/00/00/00 00:00:00
+      %p.chat-text
+        text
+
+    %footer
+      %input.create_message{ type: "text", placeholder: "type a message" }
+      %label.upload-label{for: "upload-icon"}
+        %i.fa.fa-image
+        %input{type: "file", id: "upload-icon"}
+      %input{ type: "submit", value: "Send", class: "send-message" }
