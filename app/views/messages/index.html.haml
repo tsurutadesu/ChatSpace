@@ -7,9 +7,11 @@
     = link_to new_group_path do
       = fa_icon 'pencil-square-o', class: 'fa'
   .current-group
-    sample
+    = @group.name
     %p.members
-      Members: member_name
+      Members:
+      - @group.users.each do |user|
+        = user.name
 
 .contents
   .groups
@@ -19,33 +21,15 @@
           .group__name
             = group.name
           .group__message
-            まだメッセージはありません。
-  .chat-main
-    .message
-      %p.member-name
-        name
-      %p.message-date
-        2019/00/00/00 00:00:00
-      %p.chat-text
-        text
-    .message
-      %p.member-name
-        name
-      %p.message-date
-        2019/00/00/00 00:00:00
-      %p.chat-text
-        text
-    .message
-      %p.member-name
-        name
-      %p.message-date
-        2019/00/00/00 00:00:00
-      %p.chat-text
-        text
+            = group.show_last_message
+  .messages
+    = render @messages
 
     %footer
-      %input.create_message{ type: "text", placeholder: "type a message" }
-      %label.upload-label{for: "upload-icon"}
-        %i.fa.fa-image
-        %input{type: "file", id: "upload-icon"}
-      %input{ type: "submit", value: "Send", class: "send-message" }
+      .form
+        = form_for [@group, @message] do |f|
+          = f.text_field :body, class: 'form__message', placeholder: "type a message"
+          = f.label :image, class: 'upload-label' do
+            = fa_icon 'fa-image', class: 'fa-image'
+            = f.file_field :image, class: 'upload-icon'
+          = f.submit 'Send', class: 'formm__submit'
