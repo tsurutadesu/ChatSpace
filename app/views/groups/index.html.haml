@@ -1,0 +1,18 @@
+.user-header
+  .user-action
+    .user-name
+      = current_user.name
+    = link_to edit_user_path(current_user.id) do
+      = fa_icon 'cog', class: 'fa'
+    = link_to new_group_path do
+      = fa_icon 'pencil-square-o', class: 'fa'
+
+.contents
+  .groups
+    - current_user.groups.each do |group|
+      .group
+        = link_to group_messages_path(group) do
+          .group__name
+            = group.name
+          .group__message
+            まだメッセージはありません。

@@ -12,23 +12,14 @@
       Members: member_name
 
 .contents
-  .belongs-group
-    .group
-      %p.group-name
-        aaa
-      %p.group-message
-        まだメッセージはありません。
-    .group
-      %p.group-name
-        aaa
-      %p.group-message
-        まだメッセージはありません。
-    .group
-      %p.group-name
-        aaa
-      %p.group-message
-        まだメッセージはありません。
-
+  .groups
+    - current_user.groups.each do |group|
+      .group
+        = link_to group_messages_path(group) do
+          .group__name
+            = group.name
+          .group__message
+            まだメッセージはありません。
   .chat-main
     .message
       %p.member-name

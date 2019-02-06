@@ -2,8 +2,11 @@
 @import "font-awesome";
 @import "modules/user";
 @import "config/colors";
+@import "config/font-size";
 @import "modules/flash";
 @import "modules/group";
+@import "modules/chat";
+@import "modules/side_bar";
 
 * {
   box-sizing: border-box;
@@ -13,7 +16,6 @@
   background-color: #fff;
   height: 100px;
   width: 100%;
-  border-bottom: 1px solid #eee;
   .user-action {
     height: 100px;
     background-color: #253141;
@@ -23,6 +25,7 @@
     padding: 0 20px;
     color: #fff;
     float: left;
+    border-bottom: 1px solid #253141;
     .user-name {
       float:left;
       line-height: 100px;
@@ -54,7 +57,7 @@
   height: 100%;
   width: 100%;
 
-  .belongs-group {
+  .groups {
     background-color: #2f3e51;
     height: 700px;
     width: 300px;
@@ -62,13 +65,14 @@
 
     .group {
       padding: 20px 20px 40px;
-      color: #fff;
-      .group-name {
+      .group__name {
         font-size: 15px;
         margin-bottom: 5px;
+        color: #fff;
       }
-      .group-message {
+      .group__message {
         font-size: 11px;
+        color: #fff;
       }
     }
   }
