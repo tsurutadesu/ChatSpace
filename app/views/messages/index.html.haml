@@ -22,14 +22,14 @@
             = group.name
           .group__message
             = group.show_last_message
-  .messages
+  .messages.clearfix
     = render @messages
 
     %footer
       .form
-        = form_for [@group, @message] do |f|
+        = form_for [@group, @message], html: {id: 'new_message'} do |f|
           = f.text_field :body, class: 'form__message', placeholder: "type a message"
           = f.label :image, class: 'upload-label' do
             = fa_icon 'fa-image', class: 'fa-image'
             = f.file_field :image, class: 'upload-icon'
-          = f.submit 'Send', class: 'formm__submit'
+          = f.submit 'Send', class: 'form__submit'
