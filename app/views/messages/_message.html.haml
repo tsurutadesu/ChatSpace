@@ -2,7 +2,7 @@
   %p.member-name
     = message.user.name
   %p.message-time
-    = message.created_at.strftime("%Y/%m/%d %H:%M")
+    = message.created_at.strftime("%Y年%m月%d %H:%M")
   - if message.body.present?
     %p.chat-text
       = message.body

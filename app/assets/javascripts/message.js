@@ -1,27 +1,17 @@
 $(function(){
 
   function buildHTML(message){
-    var body = (message.body) ? message.body : '';
     if (message.image) {
-      if (body) {
         var html = `<div class="message">
                       <p class="member-name">${message.name}</p>
                       <p class="message-time">${message.time}</p>
-                      <p class="chat-text">${body}</p>
-                      <p class="chat-text"><img class="image" src="${message.image}"></p>
-                    </div>`
-      } else {
-        var html = `<div class="message">
-                      <p class="member-name">${message.name}</p>
-                      <p class="message-time">${message.time}</p>
-                      <p class="chat-text"><img class="image" src="${message.image}"></p>
-                    </div>`
-      }
+                      <p class="chat-text">${message.body}</p>
+                      <p class="chat-text"><img class="image" src="${message.image}"></p>`
     } else {
         var html = `<div class="message">
                       <p class="member-name">${message.name}</p>
                       <p class="message-time">${message.time}</p>
-                      <p class="chat-text">${body}</p>
+                      <p class="chat-text">${message.body}</p>
                     </div>`
     }
     return html;
