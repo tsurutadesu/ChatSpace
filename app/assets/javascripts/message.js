@@ -1,7 +1,7 @@
 $(function(){
 
   function buildHTML(message){
-    var body  = (message.body) ? message.body : '';
+    var body = (message.body) ? message.body : '';
     if (message.image) {
       if (body) {
         var html = `<div class="message">
