@@ -85,6 +85,11 @@
     float: right;
     position: relative;
     background: #eee;
+    .clearfix:after {
+      content: "";
+      display: block;
+      clear: both;
+    }
     .message {
       padding: 46px 0 0 40px;
       .member-name {
@@ -95,7 +100,7 @@
         font-weight: bold;
         color: #434A54;
       }
-      .message-date {
+      .message-time {
         color: #999;
         font-size: 12px;
         padding-top: 4px;
@@ -105,6 +110,10 @@
         clear: both;
         font-size: 14px;
         color: #434A54;
+        .image {
+          height: 200px;
+          width: 200px;
+        }
       }
     }
 
@@ -131,7 +140,7 @@
           display: none;
         }
       }
-      .formm__submit {
+      .form__submit {
         background-color: #38AEF0;
         height: 50px;
         margin-left: 15px;
