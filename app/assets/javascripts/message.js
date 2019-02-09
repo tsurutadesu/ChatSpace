@@ -29,7 +29,6 @@ $(function(){
 
   $('#new_message').on('submit', function(e){
     e.preventDefault();
-    console.log(this)
     var formData = new FormData(this);
     var url = window.location.pathname;
     $.ajax({
@@ -41,8 +40,6 @@ $(function(){
       contentType: false,
     })
     .done(function(data){
-      console.log('succes!');
-      console.log(data);
       var html = buildHTML(data);
       $('.messages').append(html);
       $('.form__message').val('');
@@ -50,7 +47,7 @@ $(function(){
       $('.form__submit').prop('disabled', false);
     })
     .fail(function(data){
-      console.log('error');
+      alert('error');
     });
   });
 });
