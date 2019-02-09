@@ -1,19 +1,14 @@
 $(function(){
 
   function buildHTML(message){
-    var text = `<p class="member-name">${message.name}</p>
-                <p class="message-time">${message.time}</p>
-                <p class="chat-text">${message.body}</p>`
-    if (message.image) {
-        var html = `<div class="message">
-                      ${text}
-                      <p class="chat-text"><img class="image" src="${message.image}"></p>
-                    </div>`
-    } else {
-        var html = `<div class="message">
-                      ${text}
-                    </div>`
-    }
+    var image = (message.image) ? `<p class="chat-text"><img class="image" src="${message.image}"></p>` : '';
+    var html = `<div class="message">
+                  <p class="member-name">${message.name}</p>
+                  <p class="message-time">${message.time}</p>
+                  <p class="chat-text">${message.body}</p>
+                  ${image}
+                </div>`
+
     return html;
   }
 
@@ -22,10 +17,10 @@ $(function(){
     var formData = new FormData(this);
     var url = window.location.pathname;
     $.ajax({
-      url: url,
-      type: 'POST',
-      data: formData,
-      dataType: 'json',
+      url:           url,
+      type:       'POST',
+      data:     formData,
+      dataType:   'json',
       processData: false,
       contentType: false,
     })
