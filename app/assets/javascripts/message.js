@@ -1,17 +1,17 @@
 $(function(){
 
   function buildHTML(message){
+    var text = `<p class="member-name">${message.name}</p>
+                <p class="message-time">${message.time}</p>
+                <p class="chat-text">${message.body}</p>`
     if (message.image) {
         var html = `<div class="message">
-                      <p class="member-name">${message.name}</p>
-                      <p class="message-time">${message.time}</p>
-                      <p class="chat-text">${message.body}</p>
-                      <p class="chat-text"><img class="image" src="${message.image}"></p>`
+                      ${text}
+                      <p class="chat-text"><img class="image" src="${message.image}"></p>
+                    </div>`
     } else {
         var html = `<div class="message">
-                      <p class="member-name">${message.name}</p>
-                      <p class="message-time">${message.time}</p>
-                      <p class="chat-text">${message.body}</p>
+                      ${text}
                     </div>`
     }
     return html;
@@ -32,8 +32,7 @@ $(function(){
     .done(function(data){
       var html = buildHTML(data);
       $('.messages').append(html);
-      $('.form__message').val('');
-      $('.upload-icon').val('');
+      $('#new_message')[0].reset();
       $('.form__submit').prop('disabled', false);
     })
     .fail(function(data){
