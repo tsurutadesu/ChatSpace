@@ -55,10 +55,7 @@ $(function() {
       });
     })
     .fail(function(users){
-      $('#user-search-result').empty();
-      if(users.length === 0) {
         alert('ユーザー検索に失敗しました');
-      }
     });
   });
 });
