@@ -56,13 +56,12 @@
   background-color: #fefefe;
   height: 100%;
   width: 100%;
-
   .groups {
     background-color: #2f3e51;
     height: 700px;
     width: 300px;
     float: left;
-
+    overflow-y: scroll;
     .group {
       padding: 20px 20px 40px;
       &:hover {
@@ -85,6 +84,7 @@
     float: right;
     position: relative;
     background: #eee;
+    overflow-y: scroll;
     .clearfix:after {
       content: "";
       display: block;
@@ -116,12 +116,10 @@
         }
       }
     }
-
     footer {
       height: 90px;
       background-color: #ddd;
       width: 100%;
-      bottom: 0;
       padding: 20px 40px;
       position: absolute;
       .form__message {
@@ -151,4 +149,3 @@
     }
   }
 }
-
