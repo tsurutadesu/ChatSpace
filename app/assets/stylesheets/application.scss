@@ -81,10 +81,10 @@
   .messages {
     height: 700px;
     width: calc(100vw - 300px);
-    float: right;
-    position: relative;
+    float: left;
     background: #eee;
     overflow-y: scroll;
+
     .clearfix:after {
       content: "";
       display: block;
@@ -92,6 +92,8 @@
     }
     .message {
       padding: 46px 0 0 40px;
+      width:100%;
+      position: relative;
       .member-name {
         float: left;
         margin-right: 10px;
@@ -119,9 +121,11 @@
     footer {
       height: 90px;
       background-color: #ddd;
-      width: 100%;
+      width: calc(100% - 300px);
+      margin-top: 20px;
       padding: 20px 40px;
       position: absolute;
+      bottom: 0;
       .form__message {
         float:left;
         width: 80%;
