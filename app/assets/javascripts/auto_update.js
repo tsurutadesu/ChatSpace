@@ -14,7 +14,7 @@ $(function(){
   }
 
   $(function(){
-    setInterval(updateMessage, 5000);
+    setInterval(updateMessage, 50000);
   });
 
   function updateMessage(){
