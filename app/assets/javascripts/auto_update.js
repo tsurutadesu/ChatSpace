@@ -14,15 +14,11 @@ $(function(){
   }
 
   $(function(){
-    setInterval(updateMessage, 50000);
+    setInterval(updateMessage, 5000);
   });
 
   function updateMessage(){
-    if($('.message')[0]){
-      var message_id = $('.message:last').data('id');
-    } else {
-      var message_id = 0
-    }
+    var message_id = $('.message:last').data('id');
     $.ajax({
       url: location.href,
       type: 'GET',
@@ -32,7 +28,6 @@ $(function(){
       dataType: 'json',
     })
     .always(function(data){
-      console.log(data)
       $.each(data,function(i, data){
         buildMessageHTML(data);
       });
