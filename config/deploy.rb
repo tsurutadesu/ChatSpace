@@ -5,9 +5,6 @@ set :default_env, {
   AWS_SECRET_ACCESS_KEY: ENV["AWS_SECRET_ACCESS_KEY"]
 }
 
-# config valid only for current version of Capistrano
-# lock '<Capistranoのバージョン>'
-
 set :application, 'ChatSpace'
 set :repo_url,  'git@github.com:tsurutadesu/ChatSpace.git'
 
