@@ -6,7 +6,7 @@ set :default_env, {
 }
 
 # config valid only for current version of Capistrano
-lock '<Capistranoのバージョン>'
+# lock '<Capistranoのバージョン>'
 
 set :application, 'ChatSpace'
 set :repo_url,  'git@github.com:tsurutadesu/ChatSpace.git'
