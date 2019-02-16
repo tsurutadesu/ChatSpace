@@ -1,3 +1,4 @@
+
 json.array! @new_message do |message|
   json.name  message.user.name
   json.body  message.body
