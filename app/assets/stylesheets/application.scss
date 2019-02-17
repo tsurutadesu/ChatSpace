@@ -50,6 +50,16 @@
       padding-top:10px;
     }
   }
+  .edit-button {
+    height: 40px;
+    float:right;
+    color: $light_blue;
+    line-height: 40px;
+    margin:28px 20px 0 0;
+    border: 1px solid $light_blue;;
+    padding: 0 20px;
+    text-decoration: none;
+  }
 }
 
 .contents {
@@ -67,14 +77,16 @@
       &:hover {
         background-color: rgba(100,130,180,0.1);
       }
-      .group__name {
+      &__name {
         font-size: 15px;
         margin-bottom: 5px;
         color: #fff;
+        text-decoration: none;
       }
-      .group__message {
+      &__message {
         font-size: 11px;
         color: #fff;
+        text-decoration: none;
       }
     }
   }
