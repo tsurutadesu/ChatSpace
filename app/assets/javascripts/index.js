@@ -49,7 +49,6 @@ $(function() {
       });
       $(document).on("click", ".user-search-remove", function() {
           var user_id = $(this).data('user-id')
-          console.log(this)
           $(`#chat-group-user-${user_id}`).remove();
       });
     })

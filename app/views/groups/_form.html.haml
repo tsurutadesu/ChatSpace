@@ -5,34 +5,34 @@
       %ul
         - group.errors.full_messages.each do |message|
           %li= message
+
   .chat-group-form__field
     .chat-group-form__field--left
       = f.label "グループ名", class: 'chat-group-form__label'
     .chat-group-form__field--right
-      = f.text_field :name, class: 'chat__group_name chat-group-form__input', placeholder: 'グループ名を入力してください'
+      = f.text_field :name,class: 'chat__group_name chat-group-form__input', placeholder: 'グループ名を入力してください'
 
   .chat-group-form__field.clearfix
     .chat-group-form__field--left
       = f.label "チャットメンバーを追加", class: 'chat-group-form__label', for: 'chat_group-form__input'
     .chat-group-form__field--right
       .chat-group-form__search.clearfix
-        = f.text_field :name, class: "chat-group-form__input", id: "user-search-field", placeholder: "追加したいユーザー名を入力してください"
+        %input.chat-group-form__input#user-search-field{placeholder: "追加したいユーザー名を入力してください"}
+        / = f.text_field :name, class: "chat-group-form__input", id: "user-search-field", placeholder: "追加したいユーザー名を入力してください"
       #user-search-result
 
   .chat-group-form__field.clearfix
     .chat-group-form__field--left
       = f.label "チャットメンバー", class: 'chat-group-form__label',for: "chat_group_user__name"
-
     .chat-group-form__field--right
       #chat-group-users
       - group.users.each do |user|
-        = f.text_field :name, name: 'chat_group[user_ids][]',type: 'hidden',value: "#{user.id}"
+        / = f.text_field :name, name: 'chat_group[user_ids][]',type: 'hidden',value: "#{user.id}"
         %div{ class: 'chat-group-user clearfix js-chat-member', id: "chat-group-user-#{user.id}"}
           %input{name: "group[user_ids][]", type: "hidden", value: "#{user.id}"}
-          %p.chat-group-user__name
+          %p.chat-group-user__name{name: user.name}
             = user.name
           %a{ class: 'user-search-remove chat-group-user__btn chat-group-user__btn--remove js-remove-btn'}(data-user-id = "#{user.id}") 削除
-
 
   .chat-group-form__field.clearfix
     .chat-group-form__field--left
