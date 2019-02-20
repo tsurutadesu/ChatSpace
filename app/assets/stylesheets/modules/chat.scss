@@ -1,7 +1,6 @@
 .chat {
   width: calc(100% - 300px);
   .header {
-    box-sizing: border-box;
     height: 100px;
     padding: 0 40px;
     .left-header {
@@ -12,7 +11,6 @@
         margin-top: 35px;
       }
       &__members {
-        // @include flexbox;
         color: $light_gray;
         font-size: 12px;
         margin-top: 15px;
@@ -39,37 +37,39 @@
 
   .messages {
     background-color: #FAFAFA;
-    box-sizing: border-box;
     padding: 46px 40px 0;
-    height: calc(100% - 100px - 90px);
+    height: calc(100vh - 190px);
+    overflow: scroll;
     .message {
+      margin-bottom: 40px;
       .upper-message {
         display: flex;
-        &__user-name {
+        &__member-name {
           color: $black;
           font-size: 16px;
           font-weight: bold;
         }
-        &__date {
+        &__time {
           color: $light_gray;
           font-size: 12px;
-          padding-left: 10px;
+          padding:4px 0 0 10px;
         }
       }
       .lower-message {
-        margin-top: 10px;
-        &__content {
+        margin: 10px;
+        &__chat-text {
           color: $black;
           font-size: 14px;
-          margin-bottom: 40px;
+        }
+        &__image {
+          height: 200px;
+          width: 200px;
         }
       }
     }
   }
-
   .form {
     background-color: #DDDDDD;
-    box-sizing: border-box;
     height: 90px;
     padding: 20px 50px 20px 40px;
     &__message {
@@ -77,6 +77,7 @@
       float: left;
       height: 50px;
       width: calc(100% - 150px);
+      padding-left:10px;
     }
     &__mask {
       background-color: $white;
