@@ -1,37 +1,28 @@
-.user-header
-  .user-action
-    .user-name
-      = current_user.name
-    = link_to edit_user_path(current_user.id) do
-      = fa_icon 'cog', class: 'fa'
-    = link_to new_group_path do
-      = fa_icon 'pencil-square-o', class: 'fa'
-  .current-group
-    = @group.name
-    %p.members
-      Members:
-      - @group.users.each do |user|
-        = user.name
-  = link_to "EDIT",edit_group_path(@group), class: "edit-button"
+.wrapper
 
+  = render 'side_bar'
 
-.contents
-  .groups
-    - current_user.groups.sort{|a,b| b <=> a }.each do |group|
-      .group
-        = link_to group_messages_path(group) do
-          .group__name
-            = group.name
-          .group__message
-            = group.show_last_message
-  .messages.clearfix
-    = render @messages
+  .chat
+    .header
+      .left-header
+        .left-header__title
+          = @group.name
+        %ul.left-header__members
+          Member：
+          - @group.users.each do |user|
+            %li.member
+              = user.name
+      .right-header
+        = link_to 'Edit', edit_group_path(@group), class: "right-header__button"
 
-    %footer
-      .form
-        = form_for [@group, @message], html: {id: 'new_message'} do |f|
-          = f.text_field :body, class: 'form__message', placeholder: "type a message"
-          = f.label :image, class: 'upload-label' do
-            = fa_icon 'fa-image', class: 'fa-image'
-            = f.file_field :image, class: 'upload-icon'
-          = f.submit 'Send', class: 'form__submit'
+    .messages
+      = render @messages
+
+    .form
+      = form_for [@group, @message], html: { id: 'new_message'} do |f|
+        = f.text_field :body, class: 'form__message', placeholder: "type a message"
+        .form__mask
+          = f.label :image, class: 'form__mask__image' do
+            = fa_icon 'picture-o', class: 'icon'
+            = f.file_field :image, class: 'hidden'
+        = f.submit 'Send', class: 'form__submit'

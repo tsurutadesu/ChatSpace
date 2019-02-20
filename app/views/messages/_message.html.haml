@@ -1,12 +1,11 @@
 .message(data-id= "#{message.id}")
-
-  %p.member-name
-    = message.user.name
-  %p.message-time
-    = message.created_at.strftime("%Y年%m月%d %H:%M")
-  - if message.body.present?
-    %p.chat-text
-      = message.body
-  - if message.image.present?
-    %p.chat-text
-      = image_tag message.image.url, class: 'image'
+  .upper-message
+    .upper-message__member-name
+      = message.user.name
+    .upper-message__time
+      = message.created_at.strftime("%Y年%m月%d %H:%M")
+  .lower-meesage
+    - if message.body.present?
+      %p.lower-message__chat-text
+        = message.body
+    = image_tag message.image.url, class: 'lower-message__image'if message.image.present?

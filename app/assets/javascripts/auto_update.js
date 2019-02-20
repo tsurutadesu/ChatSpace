@@ -1,12 +1,16 @@
 $(function(){
 
   function buildMessageHTML(message) {
-    var image = (message.image) ? `<p class="chat-text"><img class="image" src="${message.image}"></p>` : '';
+    var image = (message.image) ? `<img class="lower-message__image" src="${message.image}">` : '';
     var text = `<div class="message" data-id="${message.id}">
-                  <p class="member-name">${message.name}</p>
-                  <p class="message-time">${message.time}</p>
-                  <p class="chat-text">${message.body}</p>
-                  ${image}
+                  <div class="upper-message">
+                    <div class="upper-message__member-name">${message.name}</div>
+                    <div class="upper-message__time">${message.time}</div>
+                  </div>
+                  <div class="lower-meesage">
+                    <p class="lower-message__chat-text">${message.body}</p>
+                    ${image}
+                  </div>
                 </div>`
     html = $('.messages').append(text);
 
@@ -34,6 +38,7 @@ $(function(){
     .always(function(data){
       $.each(data,function(i, data){
         buildMessageHTML(data);
+        $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'swing')
       });
     });
   }
