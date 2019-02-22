@@ -3,7 +3,7 @@
     .upper-message__member-name
       = message.user.name
     .upper-message__time
-      = message.created_at.strftime("%Y年%m月%d %H:%M")
+      = message.created_at.strftime("%Y年%m月%d日 %H:%M")
   .lower-meesage
     - if message.body.present?
       %p.lower-message__chat-text
