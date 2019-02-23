@@ -35,10 +35,10 @@ $(function(){
       },
       dataType: 'json',
     })
-    .always(function(data){
+    .done(function(data){
       $.each(data,function(i, data){
         buildMessageHTML(data);
-        $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'swing')
+        $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'swing');
       });
     });
   }
