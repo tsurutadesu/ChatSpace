@@ -43,7 +43,6 @@ $(function() {
           group_ids.push($(this).val());
         });
         users.forEach(function(user){
-          console.log(group_ids)
           if(group_ids.indexOf(String(user.id)) == -1 ) {
             appendSearchUserResult(user);
           }
