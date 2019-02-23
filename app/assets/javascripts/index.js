@@ -3,7 +3,7 @@ $(function() {
   var search_list = $('#user-search-result');
 
   function appendSearchUserResult(user){
-    var html =`<div class="chat-group-user clearfix">
+    var html =`<div class="chat-group-user clearfix" id='chat-group-user-${user.id}'>
                 <p class="chat-group-user__name">${user.name}</p>
                 <a class="user-search-add chat-group-user__btn chat-group-user__btn--add" data-user-id="${user.id}" data-user-name="${user.name}">追加</a>
               </div>`
@@ -11,15 +11,18 @@ $(function() {
   }
 
   function appendSearchUserNoResult(answer) {
-    var html = `<div class="chat-group-user clearfix">#{answer}</div>`
+    var html = `<div class="chat-group-user clearfix">${answer}</div>`
   }
 
   function buildAddUserHTML(user){
     var html = `<div class='chat-group-user clearfix js-chat-member' id='chat-group-user-${user.id}'>
-                  <input name='group[user_ids][]' type='hidden' value='${user.id}'>
+                  <input class="user_ids" name='group[user_ids][]' type='hidden' value='${user.id}'>
                   <p class='chat-group-user__name'>${user.name}</p>
                   <a class='user-search-remove chat-group-user__btn chat-group-user__btn--remove js-remove-btn' data-user-id=${user.id}>削除</a>
               </div>`
+
+    $('#chat-group-users').append(html);
+
     return html
   }
 
@@ -40,6 +43,7 @@ $(function() {
           group_ids.push($(this).val());
         });
         users.forEach(function(user){
+          console.log(group_ids)
           if(group_ids.indexOf(String(user.id)) == -1 ) {
             appendSearchUserResult(user);
           }
@@ -54,7 +58,6 @@ $(function() {
           users.forEach(function(user){
             if (user.id == id){
               var html = buildAddUserHTML(user);
-              $('#chat-group-users').append(html);
               $('#user-search-result').empty();
             }
           });
